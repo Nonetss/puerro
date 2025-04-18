@@ -1,0 +1,14 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "puerro"
+version = "0.1.0"
+description = "CLI para trabajar con VHDL y APIO"
+authors = [{ name = "Nonetss", email = "amorenolopezbarajas@proton.me" }]
+dependencies = ["apio"]
+
+[project.scripts]
+puerro = "puerro.cli:main"
