@@ -3,7 +3,7 @@
 import subprocess
 import sys
 
-from puerro.utils.filesystem import crear_estructura_directorios, crear_makefile
+from puerro.utils.filesystem import crear_estructura_directorios
 
 
 def run_init(board=None):
