@@ -27,11 +27,11 @@ def run_ghdl(with_tb=False):
     print("📦 Analizando archivos VHDL con GHDL:")
 
     # 1. Siempre modules primero
-    if Path("modules").exists():
-        if not analizar_archivos("modules", "módulos"):
+    if Path("src/module").exists():
+        if not analizar_archivos("src/module", "módulos"):
             return
     else:
-        print("⚠️  La carpeta 'modules/' no existe.")
+        print("⚠️  La carpeta 'module/' no existe.")
 
     # 2. Luego src
     if Path("src").exists():
