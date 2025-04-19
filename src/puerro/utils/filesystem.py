@@ -2,13 +2,8 @@
 
 import os
 
-
-def crear_estructura_directorios():
-    # Creamos el documento main.vhdl
-    os.makedirs("src", exist_ok=True)
-    with open("src/main.vhdl", "w") as f:
-        f.write(
-            f"""\
+# Plantilla para el archivo VHDL
+PLANTILLA_VHDL = """\
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
@@ -16,11 +11,9 @@ entity main is
 
 end entity main;
 """
-        )
 
-    with open("pins.pcf", "w") as f:
-        f.write(
-            """\
+PLANTILLA_PINS = """\
+
 # Pins de ejemplo para la placa
 # Cambia esto por los pines reales de tu placa
 set_io contador[0]  45
@@ -37,7 +30,16 @@ set_io clk 49
 
 set_io start 33
 """
-        )
+
+
+def crear_estructura_directorios():
+    # Creamos el documento main.vhdl
+    os.makedirs("src", exist_ok=True)
+    with open("src/main.vhdl", "w") as f:
+        f.write(PLANTILLA_VHDL)
+
+    with open("pins.pcf", "w") as f:
+        f.write(PLANTILLA_PINS)
 
     for carpeta in ["tb", "build", "wave"]:
         os.makedirs(f"src/{carpeta}", exist_ok=True)
