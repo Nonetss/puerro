@@ -4,6 +4,7 @@ from puerro.commands.puerro_add import run_add
 from puerro.commands.puerro_build import run_build
 from puerro.commands.puerro_ghdl import run_ghdl
 from puerro.commands.puerro_init import run_init
+from puerro.commands.puerro_make import run_make
 from puerro.commands.puerro_sim import run_sim
 from puerro.commands.puerro_upload import run_upload
 from puerro.commands.puerro_verilog import run_verilog
@@ -55,6 +56,11 @@ def main():
         "upload", help="Sube el diseño a la FPGA usando APIO"
     )
 
+    # make
+    parser_make = subparsers.add_parser(
+        "make", help="Ejecuta el flujo completo: ghdl, verilog, build y upload"
+    )
+
     args = parser.parse_args()
 
     if args.command == "init":
@@ -71,5 +77,7 @@ def main():
         run_build()
     elif args.command == "upload":
         run_upload()
+    elif args.command == "make":
+        run_make()
     else:
         parser.print_help()

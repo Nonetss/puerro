@@ -42,8 +42,8 @@ def run_ghdl(with_tb=False):
 
     # 3. Solo si se pide --with-tb
     if with_tb:
-        if Path("tb").exists():
-            if not analizar_archivos("tb", "testbenches"):
+        if Path("src/tb").exists():
+            if not analizar_archivos("src/tb", "testbenches"):
                 return
         else:
             print("⚠️  La carpeta 'tb/' no existe.")
